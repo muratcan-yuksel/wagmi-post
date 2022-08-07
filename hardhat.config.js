@@ -6,7 +6,7 @@ module.exports = {
   networks: {
     goerli: {
       url: `${process.env.ALCHEMY_GOERLI_URL}`,
-      accounts: [`${process.env.GOERLI_PRIVATE_KEY}`],
+      accounts: [`${process.env.MY_PRIVATE_KEY}`],
     },
   },
 };
