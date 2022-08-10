@@ -61,7 +61,7 @@ const App = () => {
   const [userName, setUserName] = useState("");
   const [displayedUserName, setDisplayedUserName] = useState("initial name");
   const [error, setError] = useState(null);
-  const contractAddress = "0xd3119cF15a2C983e6fA744dEfeD9c6051A8B7Fd7";
+  const contractAddress = "0x17c5A76a5D6db7740821425aFa029B3494DeecaB";
   const contractABI = abi.abi;
 
   const checkIfWalletIsConnected = async () => {
