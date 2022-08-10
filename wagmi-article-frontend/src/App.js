@@ -64,34 +64,13 @@ const App = () => {
   const contractAddress = "0x17c5A76a5D6db7740821425aFa029B3494DeecaB";
   const contractABI = abi.abi;
 
-  // const checkIfWalletIsConnected = async () => {
-  //   try {
-  //     if (window.ethereum) {
-  //       const accounts = await window.ethereum.request({
-  //         method: "eth_requestAccounts",
-  //       });
-  //       const account = accounts[0];
-  //       setIsWalletConnected(true);
-  //       console.log("Account Connected: ", account);
-  //     } else {
-  //       setError("Please install a wallet to use our bank.");
-  //       console.log("No wallet detected");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const handleInput = (name) => {
-    // setUserName(name);
-    // console.log(name.target.value);
     setUserName(name.target.value);
   };
 
   const handleChild = (status) => {
     console.log(status);
-    console.log("clicked in parent");
-    setIsWalletConnected(true);
+    status ? setIsWalletConnected(true) : setIsWalletConnected(false);
   };
 
   const handleClick = async (e) => {
@@ -112,13 +91,8 @@ const App = () => {
       await txn.wait();
       console.log("user name set", txn.hash);
       setDisplayedUserName(userName);
-      handleChild();
     }
   };
-
-  useEffect(() => {
-    // checkIfWalletIsConnected();
-  }, []);
 
   let userInteraction;
   if (isWalletConnected === true) {
@@ -135,11 +109,6 @@ const App = () => {
     <div className="App">
       <h1>Wagmi Project</h1>
 
-      {/* <div>
-        <input onChange={handleInput} type="text" />
-        <button onClick={handleClick}>Wave</button>
-      <p> {displayedUserName} waved!</p>
-      </div> */}
       {userInteraction}
       <WagmiConfig client={client}>
         <Profile handleChild={handleChild} />
