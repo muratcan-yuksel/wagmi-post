@@ -64,23 +64,23 @@ const App = () => {
   const contractAddress = "0x17c5A76a5D6db7740821425aFa029B3494DeecaB";
   const contractABI = abi.abi;
 
-  const checkIfWalletIsConnected = async () => {
-    try {
-      if (window.ethereum) {
-        const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-        const account = accounts[0];
-        setIsWalletConnected(true);
-        console.log("Account Connected: ", account);
-      } else {
-        setError("Please install a wallet to use our bank.");
-        console.log("No wallet detected");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const checkIfWalletIsConnected = async () => {
+  //   try {
+  //     if (window.ethereum) {
+  //       const accounts = await window.ethereum.request({
+  //         method: "eth_requestAccounts",
+  //       });
+  //       const account = accounts[0];
+  //       setIsWalletConnected(true);
+  //       console.log("Account Connected: ", account);
+  //     } else {
+  //       setError("Please install a wallet to use our bank.");
+  //       console.log("No wallet detected");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleInput = (name) => {
     // setUserName(name);
@@ -117,7 +117,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    checkIfWalletIsConnected();
+    // checkIfWalletIsConnected();
   }, []);
 
   let userInteraction;
